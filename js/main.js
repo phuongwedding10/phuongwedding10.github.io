@@ -261,8 +261,8 @@
 	// 	imageBridegroom.style.display = isShowBridegroom ? 'block': "none";
 	//   }
 	  var audioIndex = 0;
-    var audioFiles = ['audio/IDo.mp3', 'audio/BeautifulInWhite.mp3', 'audio/until-you-audio.mp3']; // Add more audio files to the array if needed
-	var nameSongs = ['I Do - 911', 'Beautiful In White - Shane Filan', 'Shayne Ward - Until You'];
+    var audioFiles = ['audio/IDo.mp3', 'audio/BeautifulInWhite.mp3', 'audio/my-love-lyrics.mp3', 'audio/until-you-audio.mp3', 'audio/i-lay-my-love-on-you-official-video.mp3']; // Add more audio files to the array if needed
+	var nameSongs = ['I Do - 911', 'Beautiful In White - Shane Filan', 'My Love - Westlife', 'Shayne Ward - Until You', 'I Lay My Love On You - Westlife'];
     var audio = new Audio();
 	var songName = document.getElementById('songName');
 	// document.getElementById('play-audio').addEventListener

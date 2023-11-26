@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  color: #007bff;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+</style>
+<body>
+    <h1>Người tham gia</h1>
+  <table id="userTable">
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Number</th>
+    </tr>
+  </table>
+  <h1>Người truy cập trang web</h1>
+  <table id="visitTable">
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+    </tr>
+  </table>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+	import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+	const firebaseConfig = {
+      databaseURL: "https://webportfolio-3614e-default-rtdb.asia-southeast1.firebasedatabase.app",
+	  apiKey: "AIzaSyAp2CD9EOidlMdiAqfTH2UIRDpvhaQ5_pY",
+	  authDomain: "webportfolio-3614e.firebaseapp.com",
+	  projectId: "webportfolio-3614e",
+	  storageBucket: "webportfolio-3614e.appspot.com",
+	  messagingSenderId: "108475911384",
+	  appId: "1:108475911384:web:e87bbe08be9684bb2e9bad",
+	  measurementId: "G-7JS873SCKQ"
+	};
+  
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+	const db = getDatabase(app);
+	const dbRef = ref(getDatabase());
+    
+        // Sample data - you can replace this with dynamic data from a database or user input
+    const users = [
+    { name: "John Doe", phone: "123-456-7890" },
+    { name: "Jane Smith", phone: "987-654-3210" },
+    // Add more user objects as needed
+    ];
+function getAllDatabase(){
+    var listVisitor ;
+    get(child(dbRef, `visit`)).then((snapshot) => {
+    if (snapshot.exists()) {
+        listVisitor = snapshot.val();
+        printVisitData(listVisitor);
+    } else {
+        console.log("No data available");
+    }});
+    var listParticipants ;
+    get(child(dbRef, `user`)).then((snapshot) => {
+    if (snapshot.exists()) {
+        listParticipants = snapshot.val();
+        populateTable(listParticipants);
+    } else {
+        console.log("No data available");
+    }});
+}
+// Function to populate the table with user data
+function populateTable(userData) {
+  const userTable = document.getElementById('userTable');
+  var index = 0;
+  for (const user in userData) {
+    if (userData.hasOwnProperty(user)) {
+        index++;
+        const row = userTable.insertRow(-1);
+        const cell0 = row.insertCell(0);
+        cell0.innerHTML = index;
+        const cell1 = row.insertCell(1);
+        cell1.innerHTML = userData[user].username;
+        const cell2 = row.insertCell(2);
+        cell2.innerHTML = userData[user].phone;
+        const cell3 = row.insertCell(3);
+        cell3.innerHTML = userData[user].numberValue;
+    }
+  }
+  
+}
+
+// Function to read and print user data
+function printVisitData(userData) {
+    
+  const visitTable = document.getElementById('visitTable');
+//   users.forEach((listVisitor, index) => {
+//     const row = visitTable.insertRow(-1);
+//     const cell1 = row.insertCell(0);
+//     cell1.innerHTML = listVisitor;
+//   });
+  var index = 0;
+  for (const user in userData) {
+    if (userData.hasOwnProperty(user)) {
+        index++;
+        const row = visitTable.insertRow(-1);
+        const cell0 = row.insertCell(0);
+        cell0.innerHTML = index;
+        const cell1 = row.insertCell(1);
+        cell1.innerHTML = userData[user].username;
+    }
+  }
+}
+
+getAllDatabase()
+  </script>
+</body>
+</html>
