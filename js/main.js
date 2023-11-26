@@ -261,7 +261,7 @@
 	// 	imageBridegroom.style.display = isShowBridegroom ? 'block': "none";
 	//   }
 	  var audioIndex = 0;
-    var audioFiles = ['audio/IDo.mp3', 'audio/BeautifulInWhite.mp3', 'until-you-audio.mp3']; // Add more audio files to the array if needed
+    var audioFiles = ['audio/IDo.mp3', 'audio/BeautifulInWhite.mp3', 'audio/until-you-audio.mp3']; // Add more audio files to the array if needed
 	var nameSongs = ['I Do - 911', 'Beautiful In White - Shane Filan', 'Shayne Ward - Until You'];
     var audio = new Audio();
 	var songName = document.getElementById('songName');
