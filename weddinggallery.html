@@ -85,7 +85,38 @@
 	</nav>
     <br/>
     <header>
-        <div class="image-gallery"></div>
+        <div class="image-gallery">
+            <img src="images/anhphuong/TXT05131.jpg" alt="">
+            <img src="images/anhphuong/TXT05189.jpg" alt="">
+            <img src="images/anhphuong/TXT05278 2.jpg" alt="">
+            <img src="images/anhphuong/TXT05278.jpg" alt="">
+            <img src="images/anhphuong/TXT05312.jpg" alt="">
+            <img src="images/anhphuong/TXT05412.jpg" alt="">
+            <img src="images/anhphuong/TXT05417.jpg" alt="">
+            <img src="images/anhphuong/TXT05454 2.jpg" alt="">
+            <img src="images/anhphuong/TXT05454.jpg" alt="">
+            <img src="images/anhphuong/TXT05490 2.jpg" alt="">
+            <img src="images/anhphuong/TXT05490.jpg" alt="">
+            <img src="images/anhphuong/TXT05567.jpg" alt="">
+            <img src="images/anhphuong/TXT05571.jpg" alt="">
+            <img src="images/anhphuong/TXT05620.jpg" alt="">
+            <img src="images/anhphuong/TXT05687.jpg" alt="">
+            <img src="images/anhphuong/TXT05735.jpg" alt="">
+            <img src="images/anhphuong/TXT05766.jpg" alt="">
+            <img src="images/anhphuong/TXT05839.jpg" alt="">
+            <img src="images/anhphuong/TXT05935.jpg" alt="">
+            <img src="images/anhphuong/TXT05936.jpg" alt="">
+            <img src="images/anhphuong/TXT05997.jpg" alt="">
+            <img src="images/anhphuong/TXT06040.jpg" alt="">
+            <img src="images/anhphuong/TXT06071.jpg" alt="">
+            <img src="images/anhphuong/TXT06084.jpg" alt="">
+            <img src="images/anhphuong/TXT06123.jpg" alt="">
+            <img src="images/anhphuong/TXT06255.jpg" alt="">
+            <img src="images/anhphuong/TXT06261.jpg" alt="">
+            <img src="images/anhphuong/TXT06336.jpg" alt="">
+            <img src="images/anhphuong/TXT06371.jpg" alt="">
+            <img src="images/anhphuong/TXT06373.jpg" alt="">
+        </div>
     </header>
     <div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
@@ -113,35 +144,6 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
     <script>
-        window.onload = function() {
-        const imageGallery = document.querySelector('.image-gallery');
-
-        // Replace 'path_to_your_images_folder' with the path to your images folder
-        const imagesFolder = 'images/anhphuong/';
-
-        // Use an array of image file extensions you want to include
-        const validExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-
-        fetch(imagesFolder)
-            .then(response => response.text())
-            .then(html => {
-            const parser = new DOMParser();
-            const folderDOM = parser.parseFromString(html, 'text/html');
-            const files = folderDOM.querySelectorAll('a');
-            files.forEach(file => {
-                const fileName = file.getAttribute('href');
-                console.log(fileName);
-                if (validExtensions.some(ext => fileName.endsWith(ext))) {
-                const image = new Image();
-                image.src = fileName;
-                image.classList.add('gallery-image');
-                imageGallery.appendChild(image);
-                }
-            });
-            })
-            .catch(error => console.error('Error fetching images:', error));
-        };
-
     </script>
 </body>
 </html>
