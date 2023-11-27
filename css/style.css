@@ -1946,12 +1946,18 @@ button:hover {
   background-color: #7c3c3c; /* Progress bar color */
   width: 0; /* Initial width is 0 */
 }
+hearder{
+  background-image:url(images/anhphuong/TIZINO_75.jpg);
+}
  @media screen and (max-width: 768px) {
   .text-address {
     font-size: 14px;
   }
   .text-address-name{
     font-size: 24px;
+  }
+  hearder{
+    background-image:url(images/anhphuong/TXT05567.jpg);
   }
   /* .gg-map {
     width: 350px;

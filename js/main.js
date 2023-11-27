@@ -232,6 +232,9 @@
 		else
 			hideImage()
 	  });
+	  $("#show-more").click(() => {
+		window.location.href = 'weddinggallery.html';
+	  });
 	//   var isShowB = false;
 	//   var isShowG = false;
 	//   $("#btn-show-bride").click(() => {
